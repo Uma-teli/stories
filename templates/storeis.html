@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" >
+        <title>Stories</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+
+               *
+                {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: Arial;
+                    
+                    
+                }
+         html,body{
+                                 
+                    height: 100vh;
+                    background: url("https://plus.unsplash.com/premium_photo-1676009547155-32d75ba9d089?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80");
+                   /* background: url("https://th.bing.com/th/id/R.d2eadcad72ff1a28a749f318aef9cc06?rik=p2dhc%2bado07diA&riu=http%3a%2f%2fwww.greendragonsociety.com%2fimages%2fPyramids_Header.jpg&ehk=f7zcmSzs8zTsjshRf0PtEER%2bm4ipi9drtyCmGddoW%2fs%3d&risl=&pid=ImgRaw&r=0") no-repeat;*/
+                    background-size: cover;              
+                    background-position: center;          
+                }
+
+        
+
+        .First{
+            height:70px;
+            width: 100%;
+            background:black;
+
+        }  
+
+        .First a{
+            float:right;        
+            text-align: center;    
+            text-decoration: none;
+            color: white;
+            height: 70px;
+            width:200px;
+
+            margin-left: 20px;
+            margin-bottom: 15px;
+            padding: 35px 10px;
+            border: 1px solid transparent;
+            
+            font-size: 18px;
+            display: block;
+            
+            
+           
+            
+        }
+        
+
+
+        .First a:hover{
+            background-color: brown;
+            
+        }    
+        .First .dropdown {
+            float: right;
+            color:white;
+          /*  width:200px;
+            height: 60px;*/
+
+           /* font-size: 20px;*/
+           /* line-height: 40px;*/
+           /* text-align: center;*/
+            
+           /* background-color:black;*/
+           /* opacity: .8;*/
+        }   
+        .First .dropdown a{
+            display: none;
+        }
+
+     .First .dropdown p{
+           /* float:right;              
+            text-decoration: none;
+            color: white;
+            height: 100px;
+
+            margin-left: 20px;
+            
+            padding: 42px 20px;
+            border: 1px solid transparent;
+            
+            font-size: 18px;*/
+            margin-bottom: 0px;
+            color: white;
+            background-color: black;
+            margin-left:80px;
+            text-align: center;
+            display: block;
+            height:50px;
+            width:200px;
+
+     } 
+           
+        .First .dropdown a:hover p{
+           /* color:white;*/
+            display: block;
+            
+        }
+         ul{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            
+        }
+
+         ul li{
+           float: left;
+            /*width:900px;*/
+            height: 60px;
+            padding-right: 250px;
+            padding-top: 15px;
+            font-size: 20px;
+
+           /* line-height: 40px;*/
+            /*text-align: center;*/
+            
+            background-color:black;
+            /*opacity: .8;*/
+        }
+
+
+         ul li a{
+            text-decoration: none;
+            color: white;
+            display: block;
+            
+        
+        }
+
+         ul li a:hover{
+            background-color:tomato;
+        }
+         ul li ul li{
+            display: none;
+
+        }
+         ul li:hover ul li{
+            display:block;
+           
+        }
+
+        p{
+            color:black;
+        }
+
+      
+
+
+        
+
+        
+
+        @media (max-width:500px){
+            .First a{
+                color:black;
+                
+            }
+        }
+
+
+       
+
+        
+        </style>
+        <script>
+            $(document).ready(function() {
+                $("storyDropdown").click(function() {
+                    var selectedItem = $(this).text();
+                    $.ajax({
+                        url: "readstories",
+                        type: "POST",
+                        data: { item: selectedItem },
+                        success: function(response) {
+                            // Handle the response from Flask
+                            console.log(response);
+                            // You can update the UI with the received data
+                        },
+                        error: function(error) {
+                            console.log(error);
+                        }
+                    });
+                });
+            });
+        </script>
+
+        </head>
+
+    <body>
+
+        <ul>
+            <!--<h1 class="head">Write your stories</h1>-->
+            <li><a href="{{url_for('edit')}}">Post stories</a></li>
+            <li><a href="{{url_for('login')}}">Login</a></li>
+            <li><a href="{{url_for('signup')}}">Signup</a></li>
+            
+            <li><a>Read Stories </a>
+                <ul>
+                <form action="{{url_for('readstories')}}" method="post">
+                    <select id="storyDropdown" name="story" >
+                        {% for i in res1 %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                        <input type="submit">
+
+                    </select>
+                </form>
+                    <!--- {% for i in res1 %}
+                
+                        <li><a>  {{i}}</a></li>
+                                            
+     
+                       {% endfor %}-->
+                      
+            
+                </ul>
+            
+        </li>
+        
+        </ul>
+        
+        <!--<div class="First">
+            <a href="{{url_for('login')}}" >Login</a>
+            <a href="{{url_for('signup')}}" >signup</a>
+            
+            <a href="{{url_for('edit')}}" >Write Stories</a>
+            
+       
+            <div class="dropdown">
+                <a href="#" >Read Stories</a>
+                
+                   {% for i in res1 %}
+                    
+                    <p>{{i}}</p> 
+                                  
+
+                    {% endfor %}    
+                
+            </div>
+    
+        </div> --><!--- <script>
+                   function redirectToFunction() {
+                        var selectedStory = document.getElementById("storyDropdown").value;
+                        console.log(selectedStory);
+                        window.location.href = "/readstories/" + selectedStory;
+        }
+             
+    </script>-->
+        
+
+
+
+        
+        
+
+        
+        
+                       
+               
+       
+        
+        
+
+
+    </body>
+    </html>

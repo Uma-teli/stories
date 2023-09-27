@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" >
+        <title>Signup</title>
+        <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+    html,body {
+            height:100vh;
+            /*background:url("https://th.bing.com/th/id/R.5241bcf6f69be1f732501000e558c2ea?rik=th0d5ohfueo8sw&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fsoSaTJM.jpg&ehk=nUl6MV1yd74%2fP%2fWBLP%2b5aM%2fDbbp7HkpX1PCLIEK%2feVo%3d&risl=&pid=ImgRaw&r=0") ;*/
+            background-color: black;
+            /*background: url("https://th.bing.com/th/id/R.d2eadcad72ff1a28a749f318aef9cc06?rik=p2dhc%2bado07diA&riu=http%3a%2f%2fwww.greendragonsociety.com%2fimages%2fPyramids_Header.jpg&ehk=f7zcmSzs8zTsjshRf0PtEER%2bm4ipi9drtyCmGddoW%2fs%3d&risl=&pid=ImgRaw&r=0") no-repeat;*/
+            background-size: cover;                     
+             background-position: center;
+
+    }
+
+
+
+        .signup{
+             width: 340px;
+             height:420px;
+             border: 5px solid lightseagreen;
+             box-shadow: 0 0 20px lightseagreen, inset 0 0 20px lightseagreen;
+             background:black;
+             position: absolute;
+             top:50%;
+             left:50%;
+             transform: translate(-50%,-50%);
+             border-radius: 35px;
+             transition: 0.5s;
+             
+        }
+        .signup:hover{
+            border:5px solid lightseagreen;
+            box-shadow: 0 0 20px lightseagreen, inset 0 0 20px lightseagreen;
+        }
+
+        .signup h1{
+            color: white;
+            font-size: 25px;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 5px;
+        }
+
+        .signup form{
+            color: white;
+            font-size: 10px;
+            margin-top: 8px;
+            padding:15px 25px;
+           
+           
+
+            
+        }
+
+        .signup h2{
+            padding:10px 15px;
+            margin-left: -8%;
+            font-size: 18px;
+        }
+
+        .signup input{
+           width:80%;
+           margin-bottom: 20px;
+           
+
+        }
+
+        .signup .alert-warning{
+            text-align: center;
+            font-size: 15px;
+            padding:10px;
+            
+
+        }
+
+        .signup input[type="text"],input[type="password"]
+        {
+
+            border: none;
+            border-bottom: 2px solid lightseagreen;
+            background: transparent;
+            outline: none;
+            height:40px;
+            color: bisque;
+            font-size: 15px;
+            box-shadow: 0 0 10px lightseagreen, inset 0 0 20px lightseagreen;
+
+
+        }
+
+        .signup  input[type="submit"]
+        {
+               background-color:Red;
+               color: white;
+               height: 40px;
+               margin-top: 10px;
+               width:100px;
+               text-align: center;
+               font-size: 15px;
+               margin-left: 81px;
+               border-radius: 20px;
+               align-items: center;
+        }
+
+        .signup a{
+            color:lightseagreen;
+            margin-left: 85px;
+            font-size: 15px;
+            align-items: center;
+        }
+
+
+        </style>
+    </head>
+    <body>
+         <div class="signup">
+            <h1>Signup</h1>
+            <form action="http://localhost:5000/signup" method='POST' class=add-entry>
+                {% if mesage is defined and mesage %}
+			       <center> <div class="alert alert-warning">{{ mesage }}</div></center>
+		        {% endif %}
+                <h2>Username:</h2>
+                <input type="text" name="username" placeholder="Enter username">
+                <h2>Password:</h2>
+                <input type="password" name="password" placeholder="Enter password">
+                <input type="Submit" name="signup" value="Sign Up">
+                <a href="{{url_for('login')}}">Login Here!!!</a>
+            </form>
+         </div>
+
+    </body>
+
+
+            

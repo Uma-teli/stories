@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" >
+        <title>Login</title>
+        <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            
+        }
+        
+        html,body{
+             height:100vh;
+             background-color: black;
+            background-size: cover;                     
+             background-position: center;
+
+    }
+
+        .Login{
+            width: 340px;;
+            height: 420px;
+           position:absolute;
+            background: black;
+            border:5px solid lightseagreen;
+            box-shadow: 0 0 20px lightseagreen, inset 0 0 20px lightseagreen;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 20px;
+            transform: .5s;
+        }
+
+        /*.Login:hover{
+            border:5px solid lightseagreen;
+            box-shadow: 0 0 20px lightseagreen, inset 0 0 20px lightseagreen;
+        }*/
+
+        .Login form{
+            color:white;
+            float: left;
+            margin-top: 6px;
+            padding:15px 25px;
+            
+       }
+
+      
+
+        .Login h3{
+           padding:10px 15px;
+           margin-left: -8%;
+           
+        }
+
+        .Login input{
+           width:80%;
+           margin-bottom: 20px;
+
+        }
+
+        .Login h1{
+            color: white;
+            font-size: 25px;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 5px;
+        }
+
+        .Login input[type="text"] ,input[type="password"]
+        {
+            border:none;
+            border-bottom: 2px solid lightseagreen;
+            box-shadow: 0 0 20px lightseagreen, inset 0 0 20px lightseagreen;
+            background: transparent;
+            outline: none;
+            height:40px;
+            color:bisque;
+            font-size: 15px;
+        }
+
+        .Login   input[type="submit"]
+        {
+               background-color: red;
+               color: white;
+               height: 40px;
+               margin-top: 10px;
+               width:100px;
+               text-align: center;
+               font-size: 15px;
+               margin-left: 80px;
+               border-radius: 20px;
+               align-items: center;
+        }
+
+        .Login a{
+            color:lightseagreen;
+           /* margin-left: 50px;*/
+            font-size: 15px;
+            
+        }
+
+        .Login p{
+            margin-left: 35px;
+        }
+
+        .Login .icon {
+           position: absolute;
+           left:10px;
+           
+            color: white;
+            
+            font-size: 1.2em;
+        }
+
+
+        
+
+        </style>
+
+    </head>
+
+<body>
+    <div class="Login">
+        <h1>Login</h1>
+        <form action="http://localhost:5000/login " method='POST'>
+            {% if mesage is defined and mesage %}
+			   <center> <div class="alert alert-warning">{{ mesage }}</div></center>
+		    {% endif %}
+            
+            <h3>Username:</h3>
+            <span class="icon">
+                <Icon-Icon name="person"></Icon-Icon>
+            </span>
+            <input type="text" name="username" placeholder="Enter your name">
+
+            <h3>Password:</h3> 
+            <i class="fa fa-key icon"></i>
+            <input type="password" name="password" placeholder="Enter your password">
+
+            <input type="submit" value="LOGIN" name="login"><br>
+            <p>Not having account? 
+            <a href="{{url_for('signup')}}">Signup</a></p>
+        </form>
+        
+    </div>
+
+
+
+
+</body>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <style>
+           *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        
+            
+        }
+
+        html,body {
+            height:100vh;
+            /*background:url("https://th.bing.com/th/id/R.5241bcf6f69be1f732501000e558c2ea?rik=th0d5ohfueo8sw&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fsoSaTJM.jpg&ehk=nUl6MV1yd74%2fP%2fWBLP%2b5aM%2fDbbp7HkpX1PCLIEK%2feVo%3d&risl=&pid=ImgRaw&r=0") ;*/
+            background-color: black;
+            /*background: url("https://th.bing.com/th/id/R.d2eadcad72ff1a28a749f318aef9cc06?rik=p2dhc%2bado07diA&riu=http%3a%2f%2fwww.greendragonsociety.com%2fimages%2fPyramids_Header.jpg&ehk=f7zcmSzs8zTsjshRf0PtEER%2bm4ipi9drtyCmGddoW%2fs%3d&risl=&pid=ImgRaw&r=0") no-repeat;*/
+            background-size: cover;                     
+             background-position: center;
+
+    }
+
+
+        .edit {
+
+            width:800px;
+            border:5px solid lightcoral;
+            box-shadow: 0 0 20px lightcoral, inset 0 0 20px lightcoral;
+            margin-left:350px;
+            background-color: gray;
+            height:500px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            margin-top: 45px;
+            font-size: 20px;
+            align-items: center;
+
+
+        }
+        .edit .title input[type="text"]{
+            border:none;
+            border-bottom: 2px solid lightcoral;
+            
+            background: transparent;
+            outline: none;
+            height:40px;
+            width:80%;
+            color: black;
+            font-size: 20px;
+            margin-left: 20px;
+            
+
+
+        }
+     
+        .edit .story label{
+            margin-left: 20px;
+        }
+        #button input[type="button"]{
+            /*align-items: center;*/
+            background:red;
+            color: white;
+            height:50px;
+            top:10px;
+            width:120px;
+            margin-left: 600px;
+            font-size: 20px;
+            border-radius: 20px;
+        }
+
+        #button input[type="button"]:hover{
+            background:crimson;
+        }
+
+        .edit .button {
+            background:red;
+            color: white;
+            height:50px;
+            width:120px;
+            margin-left: 60px;
+            font-size: 20px;
+            border-radius: 20px;
+            
+
+        }
+            
+
+        
+        #button input[type="button1"]{
+            width:120px;
+            height:50px;
+          /* margin-left: 350px;*/
+            background:red;
+            color:white;
+            text-align: center;
+            align-items:center;
+            font-size: 20px;
+            border-radius: 20px;
+        
+        }
+
+        /*.edit .title input[type="text"]{
+            align-items: center;
+            background: black;
+            color: white;
+            margin-left: 450px;
+            width:500px;
+            height:50px;
+            font-size: 15px;
+
+        }*/
+
+        #update{
+            margin-top:20px;
+            text-align: center;
+            font-size: 40px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin-bottom: 8px;
+        }
+
+        #title input[type="button"]{
+            width:90px;
+            height:50px;
+          /* margin-left: 350px;*/
+            background:red;
+            color:white;
+            text-align: center;
+            align-items:center;
+            font-size: 20px;
+            border-radius: 20px;
+        }
+
+        #update h1{
+            padding-top: 15px;
+            margin-top:80px;
+            color:lightcoral;
+            font-size: 35px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .edit .story textarea{
+            color:balck;
+            background:grey;
+            border: 2px solid lightcoral;
+            margin-left: 1px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            
+            
+            
+        }
+
+        .edit .title h2{
+            margin-top: 30px;
+            margin-left: 20px;
+            font-size: 25px;
+        }
+        .edit input[type="submit"]{
+            background:red;
+            color: white;
+            height:50px;
+            width:120px;
+            margin-left: 230px;
+            font-size: 20px;
+            border-radius: 20px;
+        }
+     </style>
+
+
+</head>
+<body>
+    <div id="update"> 
+    <center><h1>READ YOUR STORY</h1></center></div>
+    <div class="edit">
+        
+        <form action="http://localhost:5000/readstories" method='POST' class=add-entry>
+            <!--{% if mesage is defined and mesage %}
+               <center> <div class="alert alert-warning">{{ mesage }}</div></center>
+            {% endif %}-->
+            <div class="title">
+            <!--<h2>Title of the Story:</h2>-->
+            <!--<input type="text" name="title" placeholder="Enter title"></div>-->
+        <br>
+            <div class="story">
+                {{stories}}
+
+                <!--<label for="Story">Express your feelings in the form of Story:</label>
+                <br>
+                <textarea id="story" name="stories" rows="15" cols="116"></textarea>-->
+                <!--<input type="text" name="stories" placeholder="write your story ">-->
+            </div>
+            <!--<a href="{{url_for('login')}}">Login Here!!!</a>-->
+               <!--- <input type="Submit" name="signup" value="GO">
+                <input class=button type="button" value="Back" onclick="history.go(-1)">-->
+        </form>
+       
+    </div>
+      
+
+   
+
+    
+
+   <!--- <script type="text/javascript">
+
+    function saveEdits() {
+
+       //get the editable element
+      var editElem = document.getElementById("edit");
+      //get the edited element content
+      var userVersion = editElem.innerHTML;
+      //save the content to local storage
+       localStorage.userEdits = userVersion;
+
+       //write a confirmation to the user
+      document.getElementById("update").innerHTML="Edits saved!";
+
+}
+       
+       function checkEdits() {
+
+        //find out if the user has previously saved edits
+        if(localStorage.userEdits!=null)
+             document.getElementById("edit").innerHTML = localStorage.userEdits;
+}
+
+       
+
+</script>-->
+  
+          <!--- <input class=button type="button" value="Back" onclick="history.go(-1)">-->
+</body>
+</html> 
